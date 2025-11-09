@@ -2,70 +2,54 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useSession, signOut } from 'next-auth/react'
+import { useTheme } from './ThemeContext'
+import { usePathname } from 'next/navigation' // Add this import
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme, setTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
-  const { data: session } = useSession()
+  const [themeMenuOpen, setThemeMenuOpen] = useState(false)
+  const pathname = usePathname() // Get current path
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const textColor = theme === 'dark' ? 'text-white' : 'text-black'
+  const activeColor = 'text-blue-400' // Color for active link
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-2xl border-b border-accent/20' : 'bg-transparent'}`}>
-      <nav className="container mx-auto px-4 py-4 md:py-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent hover:scale-110 hover:shadow-glow transition-all duration-500 drop-shadow-lg animate-pulse">
-          CannumX
-        </Link>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-1000 ease-out ${isScrolled ? (theme === 'dark' ? 'bg-black/95 backdrop-blur-xl border-b border-blue-500/30 shadow-2xl shadow-blue-500/20' : 'bg-white/95 backdrop-blur-xl border-b border-gray-300 shadow-2xl shadow-gray-500/20') : 'bg-transparent border-transparent shadow-none'}`}>
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className={`text-2xl font-light transition-all duration-700 ease-in-out ${textColor} drop-shadow-lg`}>CannumX</Link>
         <ul className="hidden md:flex space-x-8">
-          <li><Link href="/" className="text-white hover:text-accent hover:scale-110 transition-all duration-300 font-semibold relative group">Home <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span></Link></li>
-          <li><Link href="/pricing" className="text-white hover:text-accent hover:scale-110 transition-all duration-300 font-semibold relative group">Pricing <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span></Link></li>
-          <li><Link href="/contact" className="text-white hover:text-accent hover:scale-110 transition-all duration-300 font-semibold relative group">Contact <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span></Link></li>
-          {session ? (
-            <li><Link href="/dashboard" className="text-white hover:text-accent hover:scale-110 transition-all duration-300 font-semibold relative group">Dashboard <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span></Link></li>
-          ) : (
-            <li><Link href="/login" className="text-white hover:text-accent hover:scale-110 transition-all duration-300 font-semibold relative group">Login/Sign up <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span></Link></li>
-          )}
+          <li><Link href="/" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${pathname === '/' ? activeColor : textColor} hover:text-blue-400`}>Home</Link></li>
+          <li><Link href="/services" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${pathname === '/services' ? activeColor : textColor} hover:text-blue-400`}>Services</Link></li>
+          <li><Link href="/about" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${pathname === '/about' ? activeColor : textColor} hover:text-blue-400`}>About</Link></li>
+          <li><Link href="/contact" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${pathname === '/contact' ? activeColor : textColor} hover:text-blue-400`}>Contact</Link></li>
         </ul>
-        <div className="md:hidden flex items-center space-x-4">
-          {session ? (
-            <button onClick={() => signOut()} className="text-white hover:text-accent transition-colors duration-300">Sign Out</button>
-          ) : (
-            <Link href="/login" className="text-white hover:text-accent transition-colors duration-300">Login/Sign up</Link>
-          )}
-          <button
-            onClick={toggleMenu}
-            className="text-white focus:outline-none hover:scale-110 transition-all duration-300"
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+        <div className="flex items-center space-x-4">
+          <div className="relative">
+            <button onClick={() => setThemeMenuOpen(!themeMenuOpen)} className={`${textColor} transition-all duration-500 ease-in-out hover:scale-110`}>
+              🌙
+            </button>
+            {themeMenuOpen && (
+              <div className={`absolute right-0 mt-2 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-300'} border rounded-lg shadow-xl p-2`}>
+                <button onClick={() => { setTheme('dark'); setThemeMenuOpen(false); }} className={`block w-full text-left px-4 py-2 ${textColor} hover:${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'} transition-all duration-300 ease-in-out`}>Dark</button>
+                <button onClick={() => { setTheme('light'); setThemeMenuOpen(false); }} className={`block w-full text-left px-4 py-2 ${textColor} hover:${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'} transition-all duration-300 ease-in-out`}>Light</button>
+                <button onClick={() => { setTheme('system'); setThemeMenuOpen(false); }} className={`block w-full text-left px-4 py-2 ${textColor} hover:${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'} transition-all duration-300 ease-in-out`}>System</button>
+              </div>
+            )}
+          </div>
+          <button className={`md:hidden ${textColor} transition-all duration-500 ease-in-out hover:scale-110`}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </nav>
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <ul className="bg-primary/95 backdrop-blur-md border-t border-accent/20 flex flex-col space-y-4 py-4 px-4">
-          <li><Link href="/" onClick={toggleMenu} className="block text-white hover:text-accent transition-colors duration-300 font-semibold">Home</Link></li>
-          <li><Link href="/pricing" onClick={toggleMenu} className="block text-white hover:text-accent transition-colors duration-300 font-semibold">Pricing</Link></li>
-          <li><Link href="/contact" onClick={toggleMenu} className="block text-white hover:text-accent transition-colors duration-300 font-semibold">Contact</Link></li>
-          {session ? (
-            <li><Link href="/dashboard" onClick={toggleMenu} className="block text-white hover:text-accent transition-colors duration-300 font-semibold">Dashboard</Link></li>
-          ) : (
-            <li><Link href="/login" onClick={toggleMenu} className="block text-white hover:text-accent transition-colors duration-300 font-semibold">Login/Sign up</Link></li>
-          )}
-        </ul>
-      </div>
     </header>
   )
 }
