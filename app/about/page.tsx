@@ -1,61 +1,125 @@
+'use client'
+
+import { useTheme } from '../../components/ThemeContext'
+import Link from 'next/link'
+
 export default function About() {
+  const { theme } = useTheme()
+  const bgColor = theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+  const textColor = theme === 'dark' ? 'text-white' : 'text-black'
+  const headingColor = theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-primary to-black py-16 md:py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-pink-500/20 opacity-30"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 md:mb-10 text-white drop-shadow-lg animate-fade-in">About CannumX</h1>
+    <div className={`min-h-screen ${bgColor} ${textColor} py-24 relative transition-all duration-1000 ease-in-out`}>
+      <video
+        key={theme}
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-out"
+      >
+        <source src={`/videos/about-bg${theme === 'dark' ? '' : '-light'}.mp4`} type="video/mp4" />
+      </video>
+      <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-black/5' : 'bg-white/5'} transition-all duration-1000 ease-out`}></div>
+      <div className="container mx-auto px-6 relative z-10">
+        <h1 className="text-4xl md:text-5xl font-light text-center mb-16 animate-fade-in transition-all duration-1000 ease-out">About CannumX</h1>
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="animate-fade-in-up transition-all duration-1000 ease-out">
+            <p className={`${headingColor} leading-relaxed text-lg`}>
+              CannumX was born from obsession — not luck. An obsession with building, with creating impact, and with pushing boundaries of what’s possible through AI and technology.
+              <br /><br />
+              We’re not another agency doing copy-paste work. We’re a team of young builders, dreamers, and problem solvers who believe in speed, precision, and results. Our mission is simple — to build systems, products, and automations that multiply human potential.
+              <br /><br />
+              At the core of CannumX lies a mindset: “If it can be built, we’ll build it — smarter, faster, and better.”
+              <br /><br />
+              We don’t care about titles or trends. We care about execution, innovation, and domination.
+              <br /><br />
+              Our founder and team share a common philosophy — that real success isn’t built on comfort, but on consistency, clarity, and courage.
+              <br /><br />
+              We’ve spent years learning how the digital world truly works — from AI and automation to branding, communication, and human psychology.
+              <br /><br />
+              And that’s why every project we touch reflects both — logic and emotion, precision and creativity.
+              <br /><br />
+              CannumX is where ambition meets engineering. Where ideas become systems. Where small startups turn into unstoppable brands.
+            </p>
+          </div>
+          <div className="animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.3s' }}>
+            <h2 className="text-3xl font-light mb-8">⚡ What We Stand For</h2>
+            <ul className={`${headingColor} list-disc list-inside space-y-2`}>
+              <li>Relentless innovation</li>
+              <li>Brutal honesty & clarity</li>
+              <li>Execution speed over perfection</li>
+              <li>Long-term partnerships over one-time gigs</li>
+              <li>Turning ideas into automated systems that scale</li>
+            </ul>
+          </div>
+          <div className="animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.6s' }}>
+            <h2 className="text-3xl font-light mb-8">💬 In simple words:</h2>
+            <p className={`${headingColor} leading-relaxed`}>
+              We’re not here to “sell services.” We’re here to build legacies — one business, one system, one project at a time.
+            </p>
+          </div>
+          <div className="animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.9s' }}>
+            <h2 className="text-3xl font-light mb-8">🧩 Founder’s Note</h2>
+            <p className={`${headingColor} leading-relaxed`}>
+              I started CannumX because I was tired — tired of seeing mediocre agencies with no real vision, tired of watching businesses struggle because of outdated systems and lazy execution.
+              <br /><br />
+              I wanted to build something different — something that moves fast, thinks ahead, and builds things that actually matter.
+              <br /><br />
+              To me, CannumX isn’t just a company — it’s a reflection of an obsession. An obsession with excellence, precision, and results.
+              <br /><br />
+              I believe real success doesn’t come from comfort — it comes from discipline, hunger, and clarity of purpose.
+              <br /><br />
+              We live in a world that rewards the bold — the ones who take action faster than anyone else. And that’s exactly what we do here.
+              <br /><br />
+              We don’t wait for the future — we build it.
+              <br /><br />
+              Every line of code, every product, every strategy we create comes from one thought: “How can we make this more efficient, more intelligent, more powerful?”
+              <br /><br />
+              I’ve always believed that if something can be done, it can be done better. That’s the CannumX mindset.
+              <br /><br />
+              We’re not here for fame. We’re here for impact — to build things that make people say, “How the hell did they do that?”
+              <br /><br />
+              This is just the start. The empire we’re building won’t be built on hype — it’ll be built on results, innovation, and unmatched speed.
+              <br /><br />
+              — Guneet, Founder & CEO, CannumX
+            </p>
+          </div>
+        </div>
 
-        <section className="mb-12 md:mb-16 animate-on-scroll">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">About Us</h2>
-          <p className="text-lg text-gray-200 leading-relaxed">
-            CannumX is an AI automation agency founded by Guneet Taneja with Co-founder Akhil. We are a team of ambitious and obsessed people trying to help businesses adapt the new technology and solve their business problems. We are a team of people who are really advanced in AI, tech and business skills which are determined to help you and your business!
-          </p>
-        </section>
-
-        <section className="mb-12 md:mb-16 animate-on-scroll">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">How We Are Going to Help You</h2>
-          <p className="text-lg text-gray-200 leading-relaxed mb-6">
-            We are here to help you with all your business problems. We provide AI consulting, automation solutions, website development, marketing, and more. Our goal is to make your business more efficient and profitable using cutting-edge technology.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 bg-primary/50 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 hover-glow hover:scale-105 transition-all duration-500">
-              <h3 className="text-xl font-semibold mb-4 text-accent">AI Consulting</h3>
-              <p className="text-gray-300">Get expert advice on integrating AI into your operations for better decision-making and efficiency.</p>
+        {/* Team Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-light text-center mb-12">Meet Our Team</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <img src="/images/guneet.png" alt="Guneet" className="w-32 h-32 rounded-full mx-auto mb-4" />
+              <h3 className="text-xl font-medium mb-2">Guneet</h3>
+              <p className={`${headingColor} mb-4`}>Founder & CEO</p>
+              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+                <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
+                <span>LinkedIn</span>
+              </Link>
             </div>
-            <div className="p-6 bg-primary/50 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 hover-glow hover:scale-105 transition-all duration-500">
-              <h3 className="text-xl font-semibold mb-4 text-accent">Automation Solutions</h3>
-              <p className="text-gray-300">Automate repetitive tasks with AI tools to save time and reduce costs.</p>
+            <div className="text-center">
+              <img src="/images/akhil.png" alt="Akhil" className="w-32 h-32 rounded-full mx-auto mb-4" />
+              <h3 className="text-xl font-medium mb-2">Akhil</h3>
+              <p className={`${headingColor} mb-4`}>COO & Co-founder</p>
+              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+                <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
+                <span>LinkedIn</span>
+              </Link>
             </div>
-            <div className="p-6 bg-primary/50 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 hover-glow hover:scale-105 transition-all duration-500">
-              <h3 className="text-xl font-semibold mb-4 text-accent">Website Development</h3>
-              <p className="text-gray-300">Build modern, responsive websites tailored to your business needs.</p>
-            </div>
-            <div className="p-6 bg-primary/50 backdrop-blur-md rounded-2xl shadow-2xl border border-accent/20 hover-glow hover:scale-105 transition-all duration-500">
-              <h3 className="text-xl font-semibold mb-4 text-accent">Marketing & SEO</h3>
-              <p className="text-gray-300">Enhance your online presence with AI-driven marketing and SEO strategies.</p>
+            <div className="text-center">
+              <img src="/images/taras.png" alt="Taras" className="w-32 h-32 rounded-full mx-auto mb-4" />
+              <h3 className="text-xl font-medium mb-2">Taras</h3>
+              <p className={`${headingColor} mb-4`}>CMO & Co-founder</p>
+              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+                <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
+                <span>LinkedIn</span>
+              </Link>
             </div>
           </div>
-        </section>
-
-        <section className="mb-12 md:mb-16 animate-on-scroll">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">Our Mission</h2>
-          <p className="text-lg text-gray-200 leading-relaxed">
-            Our mission is to empower businesses with AI technology, helping them stay ahead in a rapidly evolving digital world. We believe in innovation, quality, and delivering results that matter.
-          </p>
-        </section>
-
-        <section className="animate-on-scroll">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-accent">Contact Us</h2>
-          <p className="text-lg text-gray-200 leading-relaxed mb-6">
-            Ready to get started? Reach out to us for a free consultation.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-gradient-to-r from-accent to-secondary text-primary px-8 py-4 rounded-full font-bold shadow-lg hover-glow hover:scale-110 transition-all duration-500"
-          >
-            Get In Touch
-          </a>
-        </section>
+        </div>
       </div>
     </div>
   )
