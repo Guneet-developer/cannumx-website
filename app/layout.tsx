@@ -8,16 +8,53 @@ import { ThemeProvider } from '../components/ThemeContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CannumX - AI Automation for Businesses',
+  title: 'CannumX - AI & Automation Solutions',
   description: 'Elevate your business with AI consulting, automation, and growth strategies.',
-  viewport: 'width=device-width, initial-scale=1.0',
-  keywords: 'AI consulting, business automation, AI solutions, CannumX',
+  keywords: 'AI, automation, web development, SaaS, app development, branding, digital marketing',
+  authors: [{ name: 'CannumX Team' }],
+  creator: 'CannumX',
+  publisher: 'CannumX',
+  metadataBase: new URL('https://cannumx-website.vercel.app'), // Replace with your actual domain
   openGraph: {
-    title: 'CannumX - AI Automation for Businesses',
-    description: 'Transform your operations with cutting-edge AI.',
+    title: 'CannumX - AI & Automation Solutions',
+    description: 'Elevate your business with AI consulting, automation, and growth strategies.',
     url: 'https://cannumx-website.vercel.app',
     siteName: 'CannumX',
+    images: [
+      {
+        url: '/images/og-image.png', // Add an og-image.png in public/images
+        width: 1200,
+        height: 630,
+        alt: 'CannumX - AI & Automation',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CannumX - AI & Automation Solutions',
+    description: 'Elevate your business with AI consulting, automation, and growth strategies.',
+    images: ['/images/og-image.png'],
+    creator: '@cannumx', // Replace with your Twitter handle
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -27,10 +64,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0a0a0a] text-white overflow-x-hidden scroll-smooth`}>
+      <body className={inter.className}>
         <ThemeProvider>
           <Header />
-          <main className="min-h-screen">{children}</main>
+          <main>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
