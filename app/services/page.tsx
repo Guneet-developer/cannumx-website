@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useTheme } from '@/components/ThemeContext'
 import Link from 'next/link'
 
-
 const services = [
   {
     id: 'web-development',
@@ -131,8 +130,8 @@ export default function Services() {
       <div className="container mx-auto px-6">
         <h1 className="text-4xl md:text-5xl font-light text-center mb-16 animate-fade-in transition-all duration-1000 ease-out">What CannumX Builds</h1>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          {/* Integrated Sidebar */}
-          <div className="lg:col-span-1 lg:sticky lg:top-24">
+          {/* Sticky Sidebar */}
+          <div className="lg:col-span-1 lg:sticky lg:top-24 h-fit">
             <h2 className="text-xl font-medium mb-6">Our Services</h2>
             <ul className="space-y-2">
               {services.map((service) => (
@@ -151,7 +150,7 @@ export default function Services() {
             </ul>
           </div>
 
-          {/* Organized Content Area */}
+          {/* Content Area */}
           <div className="lg:col-span-3">
             <div className={`${cardBg} p-8 rounded-lg shadow-lg animate-fade-in-up transition-all duration-1000 ease-out`}>
               <h2 className="text-3xl font-light mb-4">{selectedService.title}</h2>
@@ -165,20 +164,20 @@ export default function Services() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
 
-        {/* CTA Footer */}
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-light mb-6">Let’s build something extraordinary together.</h2>
-          <Link
-            href="https://calendly.com/cannumx"
-            className="bg-blue-600 text-white px-8 py-4 rounded-full font-medium hover:bg-blue-700 hover:scale-110 transition-all duration-700 ease-in-out shadow-xl hover:shadow-blue-500/60 inline-block"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book a Free Strategy Call
-          </Link>
+            {/* CTA Footer inside content */}
+            <div className="mt-16 text-center">
+              <h2 className="text-2xl font-light mb-6">Let’s build something extraordinary together.</h2>
+              <Link
+                href="https://calendly.com/info-cannumx/30min"
+                className="bg-blue-600 text-white px-8 py-4 rounded-full font-medium hover:bg-blue-700 hover:scale-110 transition-all duration-700 ease-in-out shadow-xl hover:shadow-blue-500/60 inline-block"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a Free Strategy Call
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

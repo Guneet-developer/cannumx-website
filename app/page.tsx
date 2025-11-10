@@ -80,7 +80,7 @@ export default function Home() {
               Get Started
             </Link>
             <Link
-              href="https://calendly.com/cannumx"
+              href="https://calendly.com/info-cannumx/30min"
               className={`px-8 py-4 rounded-full font-medium transition-all duration-700 ease-in-out ${theme === 'dark' ? 'border border-white text-white hover:bg-white hover:text-black' : 'border border-black text-black hover:bg-black hover:text-white'}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -177,14 +177,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center relative transition-all duration-1000 ease-in-out">
+      <section className="py-24 bg-gradient-to-r from-black via-gray-900 to-black text-white text-center relative transition-all duration-1000 ease-in-out">
         <div className="absolute inset-0 bg-black/20 transition-opacity duration-1000 ease-in-out"></div>
         <div className="container mx-auto px-6 relative z-10">
           <h2 className="text-3xl md:text-4xl font-light mb-8 animate-fade-in transition-all duration-1000 ease-out">Ready to Transform Your Business?</h2>
           <p className="text-xl mb-12 max-w-2xl mx-auto animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.3s' }}>Join leading companies using CannumX for AI-powered success.</p>
           <Link
             href="/contact"
-            className="bg-white text-blue-600 px-10 py-4 rounded-full font-medium hover:bg-gray-200 hover:scale-110 transition-all duration-700 ease-in-out shadow-xl hover:shadow-blue-500/60"
+            className="bg-blue-600 text-white px-10 py-4 rounded-full font-medium hover:bg-blue-700 hover:scale-110 transition-all duration-700 ease-in-out shadow-xl hover:shadow-blue-500/60 inline-block"
           >
             Start Now
           </Link>

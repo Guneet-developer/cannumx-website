@@ -45,9 +45,9 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="mailto:info.cannum@gmail.com" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>Email</Link></li>
               <li><Link href="tel:+12345678900" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>Phone</Link></li>
-              <li><Link href="https://instagram.com" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>Instagram</Link></li>
-              <li><Link href="https://youtube.com" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>YouTube</Link></li>
-              <li><Link href="https://x.com" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>X (Twitter)</Link></li>
+              <li><Link href="https://www.instagram.com/fluxor.grow?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>Instagram</Link></li>
+              <li><Link href="https://youtube.com/@fluxo.cannumx?si=PshKZDEoTf8iezgK" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>YouTube</Link></li>
+              <li><Link href="https://x.com/CannumX?t=a4TZyle2WVtCgH6Ytf69Pw&s=09" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>X (Twitter)</Link></li>
               <li><Link href="https://linkedin.com" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>LinkedIn</Link></li>
             </ul>
           </div>

@@ -235,7 +235,7 @@ export default function Contact() {
             <div className="mt-8 text-center animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.5s' }}>
               <p className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'} mb-4`}>or</p>
               <Link
-                href="https://calendly.com/cannumx"
+                href="https://calendly.com/info-cannumx/30min"
                 className="bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 hover:scale-105 transition-all duration-700 ease-in-out shadow-xl hover:shadow-blue-500/60 inline-block"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -280,7 +280,7 @@ export default function Contact() {
                 />
                 <div>
                   <p className="font-medium">YouTube</p>
-                  <Link href="https://youtube.com" className="hover:underline text-blue-500">Visit Channel</Link>
+                  <Link href="https://youtube.com/@fluxo.cannumx?si=PshKZDEoTf8iezgK" className="hover:underline text-blue-500">Visit Channel</Link>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-opacity-50 rounded-lg transition-all duration-300 hover:bg-opacity-75">
@@ -291,7 +291,7 @@ export default function Contact() {
                 />
                 <div>
                   <p className="font-medium">Instagram</p>
-                  <Link href="https://instagram.com" className="hover:underline text-blue-500">Follow Us</Link>
+                  <Link href="https://www.instagram.com/fluxor.grow?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="hover:underline text-blue-500">Follow Us</Link>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-opacity-50 rounded-lg transition-all duration-300 hover:bg-opacity-75">
@@ -313,7 +313,7 @@ export default function Contact() {
                 />
                 <div>
                   <p className="font-medium">X (Twitter)</p>
-                  <Link href="https://x.com" className="hover:underline text-blue-500">Follow</Link>
+                  <Link href="https://x.com/CannumX?t=a4TZyle2WVtCgH6Ytf69Pw&s=09" className="hover:underline text-blue-500">Follow</Link>
                 </div>
               </div>
             </div>
