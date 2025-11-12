@@ -43,7 +43,7 @@ export default function Contact() {
         body: JSON.stringify(formData)
       })
       if (response.ok) {
-        setStatus('Message sent!')
+        setStatus('Your response has been submitted ✅')
         setFormData({
           firstName: '',
           lastName: '',
@@ -302,7 +302,7 @@ export default function Contact() {
                 />
                 <div>
                   <p className="font-medium">LinkedIn</p>
-                  <Link href="https://linkedin.com" className="hover:underline text-blue-500">Connect</Link>
+                  <Link href="https://www.linkedin.com/in/cannumx-ai-60641638b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="hover:underline text-blue-500">Connect</Link>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-opacity-50 rounded-lg transition-all duration-300 hover:bg-opacity-75">

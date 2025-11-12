@@ -95,7 +95,7 @@ export default function About() {
               <img src="/images/guneet.png" alt="Guneet" className="w-32 h-32 rounded-full mx-auto mb-4" />
               <h3 className="text-xl font-medium mb-2">Guneet</h3>
               <p className={`${headingColor} mb-4`}>Founder & CEO</p>
-              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+              <Link href="https://www.linkedin.com/in/guneet-taneja-0a9881398?utm_source=share_via&utm_content=profile&utm_medium=member_android" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
                 <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
                 <span>LinkedIn</span>
               </Link>
@@ -104,7 +104,7 @@ export default function About() {
               <img src="/images/akhil.png" alt="Akhil" className="w-32 h-32 rounded-full mx-auto mb-4" />
               <h3 className="text-xl font-medium mb-2">Akhil</h3>
               <p className={`${headingColor} mb-4`}>COO & Co-founder</p>
-              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+              <Link href="https://www.linkedin.com/in/akhil-s-003458331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
                 <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
                 <span>LinkedIn</span>
               </Link>
@@ -113,7 +113,7 @@ export default function About() {
               <img src="/images/taras.png" alt="Taras" className="w-32 h-32 rounded-full mx-auto mb-4" />
               <h3 className="text-xl font-medium mb-2">Taras</h3>
               <p className={`${headingColor} mb-4`}>CMO & Co-founder</p>
-              <Link href="https://linkedin.com" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
+              <Link href="https://www.linkedin.com/in/taras-mandi-2490b02aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="inline-flex items-center space-x-2 hover:underline text-blue-500">
                 <img src="/images/linkdin-about.png" alt="LinkedIn" className="w-6 h-6" />
                 <span>LinkedIn</span>
               </Link>
