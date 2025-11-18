@@ -36,6 +36,7 @@ export default function Footer() {
             <h4 className="font-medium mb-4">Resources</h4>
             <ul className="space-y-2">
               <li><Link href="/faq" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>FAQ</Link></li>
+              <li><Link href="/policy" className={`transition-colors duration-300 ${theme === 'dark' ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-black'}`}>Terms of services</Link></li>
             </ul>
           </div>
 
