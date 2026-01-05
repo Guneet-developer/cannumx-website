@@ -26,16 +26,25 @@ export default function Header() {
     setDropdownOpen(dropdownOpen === menu ? null : menu)
   }
 
+  // New: Handle logo click for scroll-to-top
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (isScrolled) {
+      e.preventDefault() // Prevent navigation if scrolled
+      window.scrollTo({ top: 0, behavior: 'smooth' }) // Smooth scroll to top
+    }
+    // If not scrolled, allow normal Link navigation
+  }
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-1000 ease-out ${isScrolled ? (theme === 'dark' ? 'bg-black/95 backdrop-blur-xl border-b border-blue-500/30 shadow-2xl shadow-blue-500/20' : 'bg-white/95 backdrop-blur-xl border-b border-gray-300 shadow-2xl shadow-gray-500/20') : 'bg-transparent border-transparent shadow-none'}`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo - Stays on the left */}
-        <Link href="/" className="transition-all duration-700 ease-in-out drop-shadow-lg">
+        {/* Logo - Now with scroll-to-top effect */}
+        <Link href="/" onClick={handleLogoClick} className="transition-all duration-700 ease-in-out drop-shadow-lg cursor-pointer">
           <Image src="/images/logo.png" alt="CannumX" width={120} height={40} className="h-10 w-auto bg-transparent" />
         </Link>
 
         {/* Navigation Links - Shifted to the right with ml-auto */}
-        <ul className={`ml-auto ${isMenuOpen ? 'flex flex-col absolute top-full left-0 w-full bg-white dark:bg-gray-900 p-4 space-y-4 md:space-y-0 md:flex-row md:relative md:top-auto md:left-auto md:w-auto md:bg-transparent md:p-0 md:ml-auto' : 'hidden md:flex space-x-8 md:ml-auto'} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
+        <ul className={`ml-auto ${isMenuOpen ? `flex flex-col absolute top-full left-0 w-full ${bgDropdown} p-4 space-y-4 md:space-y-0 md:flex-row md:relative md:top-auto md:left-auto md:w-auto md:bg-transparent md:p-0 md:ml-auto` : 'hidden md:flex space-x-8 md:ml-auto'} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
           <li><Link href="/" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
 
           {/* Company Dropdown */}
