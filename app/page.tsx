@@ -1,11 +1,8 @@
-
-
 'use client'
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useTheme } from '../components/ThemeContext'
-
 
 export default function Home() {
   const { theme } = useTheme()
@@ -35,6 +32,23 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen ${bgColor} ${textColor} transition-all duration-1000 ease-in-out ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Aurora Background */}
+      <div className="aurora-bg fixed inset-0 z-0 pointer-events-none"></div>
+      <style jsx global>{`
+        .aurora-bg {
+          background: linear-gradient(-45deg, #0f0f23, #1e1e3f, #2d1b69, #3b1c7a, #4a1d8c, #5a1e9e, #6a1fb0, #7a20c2, #8a21d4, #9a22e6, #aa23f8, #ba24fa, #ca25fc, #da26fe, #ea27ff, #fa28ff, #ff29ff, #ff2aff, #ff2bff, #ff2cff, #ff2dff, #ff2eff, #ff2fff, #ff30ff, #ff31ff, #ff32ff, #ff33ff, #ff34ff, #ff35ff, #ff36ff, #ff37ff, #ff38ff, #ff39ff, #ff3aff, #ff3bff, #ff3cff, #ff3dff, #ff3eff, #ff3fff, #ff40ff, #ff41ff, #ff42ff, #ff43ff, #ff44ff, #ff45ff, #ff46ff, #ff47ff, #ff48ff, #ff49ff, #ff4aff, #ff4bff, #ff4cff, #ff4dff, #ff4eff, #ff4fff, #ff50ff, #ff51ff, #ff52ff, #ff53ff, #ff54ff, #ff55ff, #ff56ff, #ff57ff, #ff58ff, #ff59ff, #ff5aff, #ff5bff, #ff5cff, #ff5dff, #ff5eff, #ff5fff, #ff60ff, #ff61ff, #ff62ff, #ff63ff, #ff64ff, #ff65ff, #ff66ff, #ff67ff, #ff68ff, #ff69ff, #ff6aff, #ff6bff, #ff6cff, #ff6dff, #ff6eff, #ff6fff, #ff70ff, #ff71ff, #ff72ff, #ff73ff, #ff74ff, #ff75ff, #ff76ff, #ff77ff, #ff78ff, #ff79ff, #ff7aff, #ff7bff, #ff7cff, #ff7dff, #ff7eff, #ff7fff, #ff80ff, #ff81ff, #ff82ff, #ff83ff, #ff84ff, #ff85ff, #ff86ff, #ff87ff, #ff88ff, #ff89ff, #ff8aff, #ff8bff, #ff8cff, #ff8dff, #ff8eff, #ff8fff, #ff90ff, #ff91ff, #ff92ff, #ff93ff, #ff94ff, #ff95ff, #ff96ff, #ff97ff, #ff98ff, #ff99ff, #ff9aff, #ff9bff, #ff9cff, #ff9dff, #ff9eff, #ff9fff, #ffa0ff, #ffa1ff, #ffa2ff, #ffa3ff, #ffa4ff, #ffa5ff, #ffa6ff, #ffa7ff, #ffa8ff, #ffa9ff, #ffaaff, #ffabff, #ffacff, #ffadff, #ffaeff, #ffafff, #ffb0ff, #ffb1ff, #ffb2ff, #ffb3ff, #ffb4ff, #ffb5ff, #ffb6ff, #ffb7ff, #ffb8ff, #ffb9ff, #ffbaff, #ffbbff, #ffbcff, #ffbdff, #ffbeff, #ffbfff, #ffc0ff, #ffc1ff, #ffc2ff, #ffc3ff, #ffc4ff, #ffc5ff, #ffc6ff, #ffc7ff, #ffc8ff, #ffc9ff, #ffcaff, #ffcbff, #ffccff, #ffcdff, #ffceff, #ffcfff, #ffd0ff, #ffd1ff, #ffd2ff, #ffd3ff, #ffd4ff, #ffd5ff, #ffd6ff, #ffd7ff, #ffd8ff, #ffd9ff, #ffdaff, #ffdbf, #ffdcf, #ffddf, #ffdef, #ffdff, #ffe0ff, #ffe1ff, #ffe2ff, #ffe3ff, #ffe4ff, #ffe5ff, #ffe6ff, #ffe7ff, #ffe8ff, #ffe9ff, #ffeaff, #ffebff, #ffecff, #ffedff, #ffeeff, #ffeff, #fff0ff, #fff1ff, #fff2ff, #fff3ff, #fff4ff, #fff5ff, #fff6ff, #fff7ff, #fff8ff, #fff9ff, #fffaff, #fffbff, #fffcf, #fffdf, #fffef, #fffff);
+          background-size: 400% 400%;
+          animation: aurora 20s ease infinite;
+          opacity: 0.3;
+          filter: blur(1px);
+        }
+        @keyframes aurora {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <video
@@ -64,7 +78,7 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-6 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-light mb-6 drop-shadow-2xl animate-fade-in transition-all duration-1000 ease-out">
-            Elevate Your Business with AI
+            Elevate Your Business with CannumX
           </h1>
           <p className="text-lg md:text-xl mb-8 drop-shadow-lg animate-fade-in-up transition-all duration-1000 ease-out" style={{ animationDelay: '0.2s' }}>
             Make your business work for you while you sleep.
@@ -193,7 +207,3 @@ export default function Home() {
     </div>
   )
 }
-
-
-
-
