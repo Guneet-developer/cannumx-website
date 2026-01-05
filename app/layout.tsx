@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { ThemeProvider } from '../components/ThemeContext'
+import CursorSpotlight from '../components/CursorSpotlight'  // Added import
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
+          <CursorSpotlight />  {/* Added: Renders the cursor spotlight globally */}
           <Header />
           <main>{children}</main>
           <Footer />

@@ -29,15 +29,18 @@ export default function Header() {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-1000 ease-out ${isScrolled ? (theme === 'dark' ? 'bg-black/95 backdrop-blur-xl border-b border-blue-500/30 shadow-2xl shadow-blue-500/20' : 'bg-white/95 backdrop-blur-xl border-b border-gray-300 shadow-2xl shadow-gray-500/20') : 'bg-transparent border-transparent shadow-none'}`}>
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo - Stays on the left */}
         <Link href="/" className="transition-all duration-700 ease-in-out drop-shadow-lg">
           <Image src="/images/logo.png" alt="CannumX" width={120} height={40} className="h-10 w-auto bg-transparent" />
         </Link>
-        <ul className={`${isMenuOpen ? 'flex flex-col absolute top-full left-0 w-full bg-white dark:bg-gray-900 p-4 space-y-4 md:space-y-0 md:flex-row md:relative md:top-auto md:left-auto md:w-auto md:bg-transparent md:p-0' : 'hidden md:flex space-x-8'}`}>
-          <li><Link href="/" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${textColor} hover:text-blue-400`} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+
+        {/* Navigation Links - Shifted to the right with ml-auto */}
+        <ul className={`ml-auto ${isMenuOpen ? 'flex flex-col absolute top-full left-0 w-full bg-white dark:bg-gray-900 p-4 space-y-4 md:space-y-0 md:flex-row md:relative md:top-auto md:left-auto md:w-auto md:bg-transparent md:p-0 md:ml-auto' : 'hidden md:flex space-x-8 md:ml-auto'} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
+          <li><Link href="/" className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`} onClick={() => setIsMenuOpen(false)}>Home</Link></li>
 
           {/* Company Dropdown */}
           <li className="relative">
-            <button onClick={() => toggleDropdown('company')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${textColor} hover:text-blue-400`}>
+            <button onClick={() => toggleDropdown('company')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`}>
               Company
             </button>
             {dropdownOpen === 'company' && (
@@ -51,7 +54,7 @@ export default function Header() {
 
           {/* Resources Dropdown */}
           <li className="relative">
-            <button onClick={() => toggleDropdown('resources')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${textColor} hover:text-blue-400`}>
+            <button onClick={() => toggleDropdown('resources')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`}>
               Resources
             </button>
             {dropdownOpen === 'resources' && (
@@ -63,7 +66,7 @@ export default function Header() {
 
           {/* Contact Dropdown */}
           <li className="relative">
-            <button onClick={() => toggleDropdown('contact')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${textColor} hover:text-blue-400`}>
+            <button onClick={() => toggleDropdown('contact')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`}>
               Contact
             </button>
             {dropdownOpen === 'contact' && (
@@ -80,7 +83,7 @@ export default function Header() {
 
           {/* Services Dropdown */}
           <li className="relative">
-            <button onClick={() => toggleDropdown('services')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl ${textColor} hover:text-blue-400`}>
+            <button onClick={() => toggleDropdown('services')} className={`transition-all duration-500 ease-in-out hover:scale-110 hover:drop-shadow-xl hover:underline ${textColor} hover:text-blue-400`}>
               Services
             </button>
             {dropdownOpen === 'services' && (
@@ -96,6 +99,8 @@ export default function Header() {
             )}
           </li>
         </ul>
+
+        {/* Theme Toggle and Mobile Menu Button - Stays on the right */}
         <div className="flex items-center space-x-4">
           <div className="relative">
             <button onClick={() => setThemeMenuOpen(!themeMenuOpen)} className={`${textColor} transition-all duration-500 ease-in-out hover:scale-110`}>
