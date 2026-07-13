@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.2",
-    "@types/node": "latest",
-    "@types/react": "latest",
     "autoprefixer": "latest",
     "framer-motion": "latest",
     "lucide-react": "latest",
@@ -22,6 +20,8 @@
     "tailwindcss": "latest"
   },
   "devDependencies": {
-    "typescript": "7.0.2"
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.9",
+    "typescript": "^5.9.2"
   }
 }
